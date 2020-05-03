@@ -17,6 +17,14 @@ countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
 countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
 countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
 
-Note: In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same
-Happy coding!
-"""
+Note: In case of an empty array return 0. You will not be tested with invalid input (input will always be an array).
+Order of the face (eyes, nose, mouth) elements will always be the same Happy coding! """
+
+import re
+
+
+def count_smileys(arr):
+    return len([1 for i in arr if re.match(r'[:;][-~]?[\)D]', i) is not None])
+
+
+print(count_smileys([':)', ':(', ':D', ':O', ':;']))
